@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { MoonLoader } from "react-spinners";
 import "./Login.css";
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -25,11 +28,16 @@ function Login() {
       setStatusType("success");
       setStatusMessage("Login successful. Redirecting...");
 
+      const token = response.data?.token || response.data?.accessToken || response.data?.jwt;
+      if (token) {
+        localStorage.setItem("token", token);
+      }
+
       console.log("Login Data:", response.data);
 
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
+      await delay(3000);
+
+      navigate("/");
     } catch (err) {
       console.error("Login Error:", err);
 
@@ -43,6 +51,15 @@ function Login() {
 
   return (
     <div className="auth-page">
+      {isLoading ? (
+        <div className="auth-loader-overlay" aria-live="polite" aria-busy="true">
+          <div className="auth-loader-card">
+            <MoonLoader size={44} color="#2563eb" />
+            <p>Logging in...</p>
+          </div>
+        </div>
+      ) : null}
+
       <form className="auth-form" onSubmit={handleSubmit}>
         <h1>Login</h1>
 
@@ -67,7 +84,7 @@ function Login() {
         />
 
         <button type="submit" disabled={isLoading}>
-          {isLoading ? "Logging in..." : "Login"}
+          Login
         </button>
 
         <p>

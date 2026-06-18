@@ -43,11 +43,9 @@ function Home() {
         <section className="home-hero">
           <div className="home-hero-copy">
             <p className="home-eyebrow">Featured products</p>
+            <br></br>
             <h1>Shop the latest products from our catalog</h1>
-            <p>
-              Browse the current inventory pulled live from the API and explore the latest prices,
-              categories, and stock levels.
-            </p>
+            <br></br>
           </div>
 
           {loading ? <p className="home-status">Loading products...</p> : null}

@@ -1,0 +1,58 @@
+.auth-page-signup .auth-form {
+  gap: 14px;
+}
+
+.signup-form {
+  display: grid;
+  gap: 12px;
+}
+
+.signup-form label {
+  margin-top: 2px;
+  color: #1e293b;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #d7dde8;
+  background: #fff;
+  font-size: 1rem;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font-family: sans-serif;
+}
+
+.signup-form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.14);
+}
+
+.signup-form button {
+  margin-top: 8px;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #2563eb, #0f4fd6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  font-family: sans-serif;
+}
+
+.signup-form button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.signup-form button:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}

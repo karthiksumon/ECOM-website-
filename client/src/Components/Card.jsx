@@ -1,4 +1,5 @@
 import "./Card.css";
+import { toast } from "react-toastify";
 
 function Card({ product }) {
   const imageUrl = product?.image
@@ -6,6 +7,10 @@ function Card({ product }) {
       ? product.image
       : `https://sample-e-1.onrender.com/${product.image}`
     : "";
+
+  const handleBuy = () => {
+    toast("Success: Product Purchased!");
+  };
 
   return (
     <article className="product-card">
@@ -21,21 +26,35 @@ function Card({ product }) {
             }}
           />
         ) : (
-          <div className="product-card-image placeholder" />
+          <div className="product-card-image-placeholder" />
         )}
       </div>
 
       <div className="product-card-content">
         <div className="product-card-meta">
-          <span className="product-card-category">{product?.category || "Product"}</span>
-          <span className="product-card-stock">Stock: {product?.stock ?? 0}</span>
+          <span className="product-card-category">
+            {product?.category || "Product"}
+          </span>
+          <span className="product-card-stock">
+            Stock: {product?.stock ?? 0}
+          </span>
         </div>
-
-        <h2 className="product-card-title">{product?.name || "Untitled product"}</h2>
-        <p className="product-card-description">{product?.description || "No description available."}</p>
-
+        
+        <h2 className="product-card-title">
+          {product?.name || "Untitled product"}
+        </h2>
+        
+        <p className="product-card-description">
+          {product?.description || "No description available."}
+        </p>
+        
         <div className="product-card-footer">
-          <span className="product-card-price">₹{Number(product?.price || 0).toLocaleString("en-IN")}</span>
+          <span className="product-card-price">
+            ₹{Number(product?.price || 0).toLocaleString("en-IN")}
+          </span>
+          <button className="product-card-buy-button" onClick={handleBuy}>
+            BUY
+          </button>
         </div>
       </div>
     </article>
