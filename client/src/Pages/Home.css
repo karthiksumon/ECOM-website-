@@ -1,0 +1,62 @@
+.body {
+    min-height: 100vh;
+    padding: 32px 24px 48px;
+    background:
+        radial-gradient(circle at top, rgb(107, 137, 226), transparent 100%),
+        linear-gradient(180deg, #dcdcdc 0%, #94a3b6 100%);
+    font-family: sans-serif;
+    color: #0f172a;
+}
+
+.home-hero {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+    display: grid;
+    gap: 16px;
+}
+
+.home-hero-copy h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.05;
+}
+
+.home-hero-copy p {
+    margin: 12px 0 0;
+    max-width: 720px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.home-eyebrow {
+    margin: 0 0 10px;
+    color: #00193e;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.82rem;
+}
+
+.home-status {
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    color: #334155;
+    font-weight: 600;
+}
+
+.home-status-error {
+    background: rgba(239, 68, 68, 0.08);
+    color: #991b1b;
+    border-color: rgba(239, 68, 68, 0.18);
+}
+
+.product-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
