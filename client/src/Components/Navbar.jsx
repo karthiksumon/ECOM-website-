@@ -53,6 +53,11 @@ function Navbar() {
           </>
         )}
         {isSignedIn ? (
+          <Link to="/addproduct" className="site-nav__link" onClick={() => setIsOpen(false)}>
+            Add Product
+          </Link>
+        ) : null}
+        {isSignedIn ? (
           <button type="button" className="site-nav__logout" onClick={handleLogout}>
             Logout
           </button>
